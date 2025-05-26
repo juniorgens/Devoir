@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Citations Personnelles</title>
+  <style>
+    body {
+      background-color: white;
+    }
+    #quoteBox {
+      background: orange;
+      margin-bottom: 3em;
+    }
+    button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Citations Personnelles</h1>
+  <h2><em>Créé par YONDA EDJOUCK LESLIE</em></h2>
+  <div id="quoteBox">
+    <p id="quote">Cliquez sur le bouton pour obtenir une citation !</p>
+  </div>
+  <button id="newQuoteBtn">Nouvelle Citation</button>
+
+  <script>
+    const quoteText = document.getElementById("quote");
+    const newQuoteBtn = document.getElementById("newQuoteBtn");
+
+    function getQuote() {
+      quoteText.textContent = "Chargement...";
+      fetch("Quotes.json")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Erreur lors du chargement de Quotes.json");
+          }
+          return response.json();
+        })
+        .then(data => {
+          const randomIndex = Math.floor(Math.random() * data.length);
+          const quote = data[randomIndex];
+          quoteText.textContent = quote.q;
+        })
+        .catch(error => {
+          console.error("Erreur :", error);
+          quoteText.textContent = "Impossible de charger la citation.";
+        });
+    }
+
+    newQuoteBtn.addEventListener("click", getQuote);
+    getQuote(); // Charger une citation au démarrage
+  </script>
+</body>
+</html>
