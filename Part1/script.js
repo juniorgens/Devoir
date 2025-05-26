@@ -13,10 +13,11 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-// Exemple : Afficher une alerte pour le formulaire de contact (optionnel)
+// Exemple : Afficher une alerte pour le formulaire de contact 
 document.addEventListener('DOMContentLoaded', () => {
     const contactSection = document.getElementById('contact');
     contactSection.addEventListener('click', () => {
         alert('Merci de visiter mon portfolio ! Envoyez-moi un email pour me contacter.');
     });
 });
+
