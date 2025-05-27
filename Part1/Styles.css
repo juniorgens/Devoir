@@ -48,16 +48,26 @@ section {
 
 /* Ajout pour éviter que la nav cache le contenu */
 #home {
-    margin-top: 60px; /* Marge pour compenser la hauteur de la nav sur desktop */
+    margin-top: 60px;
 }
 
-h1, h2 {
+h1 {
+    font-size: 3.5rem; /* Taille augmentée pour desktop */
     margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.5rem; /* Taille augmentée pour desktop */
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .profile-img {
-    width: 700px; /* Nouvelle taille plus grande */
-    height: 700px; /* Nouvelle taille plus grande */
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
     object-fit: cover;
     margin: 1rem auto;
@@ -123,11 +133,11 @@ blockquote p {
     }
 
     nav {
-        padding: 0.3rem; /* Réduit le padding sur mobile */
+        padding: 0.5rem;
     }
 
     #home {
-        margin-top: 120px; /* Marge pour compenser la hauteur de la nav en mode colonne */
+        margin-top: 120px;
     }
 
     section {
@@ -147,19 +157,31 @@ blockquote p {
         padding: 0.5rem;
         margin: 1rem 0;
     }
+
+    h1 {
+        font-size: 2.5rem; /* Taille ajustée pour tablette */
+    }
+
+    h2 {
+        font-size: 2rem; /* Taille ajustée pour tablette */
+    }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
     #home {
-        margin-top: 120px; /* Marge pour mobile */
+        margin-top: 100px;
     }
 
     .profile-img {
-        width: 350px;
-        height: 350px;
+        width: 300px;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 2rem; /* Taille augmentée pour mobile */
+    }
+
+    h2 {
+        font-size: 1.75rem; /* Taille augmentée pour mobile */
     }
 }
