@@ -1,14 +1,11 @@
 /* styles.css */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
+/* Fond général du body (si tu veux une couleur par défaut pour toute la page) */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #f9f6f2; /* Blanc cassé légèrement doré pour le fond général */
 }
 
 /* Navigation */
@@ -46,20 +43,44 @@ section {
     text-align: center;
 }
 
-/* Ajout pour éviter que la nav cache le contenu */
+/* Section-specific backgrounds */
 #home {
     margin-top: 60px;
+    background-color: #f9f6f2; /* Blanc cassé légèrement doré */
 }
 
+#about {
+    background-color: #e8f5e9; /* Vert très pâle */
+}
+
+#portfolio {
+    background-color: #fff3e0; /* Orange pastel */
+}
+
+#showcase {
+    background-color: #ffffff; /* Blanc pur */
+}
+
+#quotes {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #fff8e1; /* Doré pâle */
+}
+
+#contact {
+    background-color: #e3f2fd; /* Bleu pâle */
+}
+
+/* Autres styles inchangés */
 h1 {
-    font-size: 3.5rem; /* Taille augmentée pour desktop */
+    font-size: 3.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
     line-height: 1.2;
 }
 
 h2 {
-    font-size: 2.5rem; /* Taille augmentée pour desktop */
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
     line-height: 1.3;
@@ -96,12 +117,6 @@ h2 {
 }
 
 /* Section Mes citations */
-#quotes {
-    padding: 4rem 2rem;
-    text-align: center;
-    background-color: #f9f9f9;
-}
-
 .quotes-list {
     max-width: 800px;
     margin: 0 auto;
@@ -159,11 +174,11 @@ blockquote p {
     }
 
     h1 {
-        font-size: 2.5rem; /* Taille ajustée pour tablette */
+        font-size: 2.5rem;
     }
 
     h2 {
-        font-size: 2rem; /* Taille ajustée pour tablette */
+        font-size: 2rem;
     }
 }
 
@@ -178,10 +193,10 @@ blockquote p {
     }
 
     h1 {
-        font-size: 2rem; /* Taille augmentée pour mobile */
+        font-size: 2rem;
     }
 
     h2 {
-        font-size: 1.75rem; /* Taille augmentée pour mobile */
+        font-size: 1.75rem;
     }
 }
