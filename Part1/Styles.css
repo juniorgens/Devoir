@@ -123,7 +123,7 @@ blockquote p {
     }
 
     nav {
-        padding: 0.5rem; /* Réduit le padding sur mobile */
+        padding: 0.3rem; /* Réduit le padding sur mobile */
     }
 
     #home {
@@ -155,11 +155,11 @@ blockquote p {
     }
 
     #home {
-        margin-top: 100px; /* Marge pour mobile */
+        margin-top: 120px; /* Marge pour mobile */
     }
 
     .profile-img {
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 350px;
     }
 }
