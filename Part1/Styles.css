@@ -50,7 +50,14 @@ h1, h2 {
     margin-bottom: 1rem;
 }
 
-
+.profile-img {
+    width: 300px; /* Augmente la largeur pour une image plus grande */
+    height: 300px; /* Augmente la hauteur */
+    border-radius: 50%; /* Garde l'image ronde */
+    object-fit: cover; /* Évite la déformation */
+    margin: 1rem auto; /* Garde l'image centrée */
+    display: block; /* Assure que l'image est un élément de bloc */
+}
 
 /* Portfolio et Vitrine */
 .portfolio-grid, .showcase-grid {
