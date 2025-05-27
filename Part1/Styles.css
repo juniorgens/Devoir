@@ -68,11 +68,14 @@ section {
 }
 
 #home p {
-    font-size: 1.2rem; /* Taille plus grande pour le texte sous la photo */
+    font-size: 1.2rem;
     font-weight: 400;
     color: #222;
     letter-spacing: 0.5px;
     margin-top: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #about {
@@ -84,6 +87,8 @@ section {
     font-weight: 400;
     color: #333;
     letter-spacing: 0.3px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 #portfolio {
