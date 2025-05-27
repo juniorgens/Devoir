@@ -46,13 +46,18 @@ section {
     text-align: center;
 }
 
+/* Ajout pour éviter que la nav cache le contenu */
+#home {
+    margin-top: 60px; /* Marge pour compenser la hauteur de la nav sur desktop */
+}
+
 h1, h2 {
     margin-bottom: 1rem;
 }
 
 .profile-img {
-    width: 500px; /* Nouvelle taille */
-    height: 500px; /* Nouvelle taille */
+    width: 700px; /* Nouvelle taille plus grande */
+    height: 700px; /* Nouvelle taille plus grande */
     border-radius: 50%;
     object-fit: cover;
     margin: 1rem auto;
@@ -70,7 +75,7 @@ h1, h2 {
 .project, .assignment {
     background-color: #f4f4f4;
     padding: 1rem;
-    border5px;
+    border-radius: 5px;
 }
 
 .project img {
@@ -117,13 +122,21 @@ blockquote p {
         margin: 0.5rem 0;
     }
 
+    nav {
+        padding: 0.5rem; /* Réduit le padding sur mobile */
+    }
+
+    #home {
+        margin-top: 120px; /* Marge pour compenser la hauteur de la nav en mode colonne */
+    }
+
     section {
         padding: 2rem 1rem;
     }
 
     .profile-img {
-        width: 350px; /* Taille pour tablette */
-        height: 350px;
+        width: 500px;
+        height: 500px;
     }
 
     #quotes {
@@ -141,8 +154,12 @@ blockquote p {
         font-size: 1.5rem;
     }
 
-    .profile-img {
-        width: 200px; /* Taille pour mobile */
-        height: 200px;
+    #home {
+        margin-top: 100px; /* Marge pour mobile */
     }
-        }
+
+    .profile-img {
+        width: 300px;
+        height: 300px;
+    }
+}
