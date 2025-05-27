@@ -14,45 +14,24 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-// Gestion des sliders
-const sliders = {
-    portfolio: { currentIndex: 0, slideCount: 3 },
-    showcase: { currentIndex: 0, slideCount: 3 }
+// Gestion de l'affichage dynamique des images
+const sections = document.querySelectorAll('#portfolio, #showcase');
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
 };
 
-function moveSlide(sliderId, direction) {
-    const slider = sliders[sliderId];
-    const track = document.getElementById(`${sliderId}-track`);
-    const slides = track.querySelectorAll('.slide');
-    const slideWidth = slides[0].offsetWidth;
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const items = entry.target.querySelectorAll('.project-item');
+        if (entry.isIntersecting) {
+            items.forEach(item => item.classList.add('visible'));
+        } else {
+            items.forEach(item => item.classList.remove('visible'));
+        }
+    });
+}, observerOptions);
 
-    // Calculer le nombre de slides visibles
-    const windowWidth = window.innerWidth;
-    let visibleSlides = 3;
-    if (windowWidth <= 480) {
-        visibleSlides = 1;
-    } else if (windowWidth <= 768) {
-        visibleSlides = 2;
-    }
-
-    // Mettre à jour l'index
-    slider.currentIndex += direction;
-
-    // Limiter l'index
-    const maxIndex = slider.slideCount - visibleSlides;
-    if (slider.currentIndex < 0) {
-        slider.currentIndex = 0;
-    } else if (slider.currentIndex > maxIndex) {
-        slider.currentIndex = maxIndex;
-    }
-
-    // Déplacer le track
-    const offset = -slider.currentIndex * slideWidth;
-    track.style.transform = `translateX(${offset}px)`;
-}
-
-// Réinitialiser le slider lors du redimensionnement
-window.addEventListener('resize', () => {
-    moveSlide('portfolio', 0);
-    moveSlide('showcase', 0);
-});
+sections.forEach(section => observer.observe(section));
