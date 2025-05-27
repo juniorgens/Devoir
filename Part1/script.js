@@ -23,19 +23,36 @@ const sliders = {
 function moveSlide(sliderId, direction) {
     const slider = sliders[sliderId];
     const track = document.getElementById(`${sliderId}-track`);
-    const slideWidth = track.querySelector('.slide').offsetWidth;
+    const slides = track.querySelectorAll('.slide');
+    const slideWidth = slides[0].offsetWidth;
+
+    // Calculer le nombre de slides visibles
+    const windowWidth = window.innerWidth;
+    let visibleSlides = 3;
+    if (windowWidth <= 480) {
+        visibleSlides = 1;
+    } else if (windowWidth <= 768) {
+        visibleSlides = 2;
+    }
 
     // Mettre à jour l'index
     slider.currentIndex += direction;
 
-    // Limiter l'index pour qu'il reste dans les bornes
+    // Limiter l'index
+    const maxIndex = slider.slideCount - visibleSlides;
     if (slider.currentIndex < 0) {
         slider.currentIndex = 0;
-    } else if (slider.currentIndex > slider.slideCount - 3) {
-        slider.currentIndex = slider.slideCount - 3;
+    } else if (slider.currentIndex > maxIndex) {
+        slider.currentIndex = maxIndex;
     }
 
     // Déplacer le track
     const offset = -slider.currentIndex * slideWidth;
     track.style.transform = `translateX(${offset}px)`;
 }
+
+// Réinitialiser le slider lors du redimensionnement
+window.addEventListener('resize', () => {
+    moveSlide('portfolio', 0);
+    moveSlide('showcase', 0);
+});
