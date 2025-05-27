@@ -51,8 +51,8 @@ h1, h2 {
 }
 
 .profile-img {
-    width: 300px; /* Augmente la largeur pour une image plus grande */
-    height: 300px; /* Augmente la hauteur */
+    width: 600px; /* Augmente la largeur pour une image plus grande */
+    height: 600px; /* Augmente la hauteur */
     border-radius: 50%; /* Garde l'image ronde */
     object-fit: cover; /* Évite la déformation */
     margin: 1rem auto; /* Garde l'image centrée */
