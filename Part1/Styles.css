@@ -51,10 +51,12 @@ h1, h2 {
 }
 
 .profile-img {
-    width: 800px; /* Augmente la largeur pour une image plus grande */
-    height: 800px; /* Augmente la hauteur */
-    
-    margin: 1rem auto; /* Garde l'image centrée */
+    width: 500px; /* Nouvelle taille */
+    height: 500px; /* Nouvelle taille */
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 1rem auto;
+    display: block;
 }
 
 /* Portfolio et Vitrine */
@@ -65,11 +67,24 @@ h1, h2 {
     margin-top: 2rem;
 }
 
-/* Ajout pour la section Mes citations */
+.project, .assignment {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border5px;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    max-width: 300px;
+}
+
+/* Section Mes citations */
 #quotes {
     padding: 4rem 2rem;
     text-align: center;
-    background-color: #f9f9f9; /* Fond légèrement gris pour différencier la section */
+    background-color: #f9f9f9;
 }
 
 .quotes-list {
@@ -82,37 +97,13 @@ blockquote {
     color: #555;
     margin: 1.5rem 0;
     padding: 1rem;
-    border-left: 4px solid #4CAF50; /* Une bordure verte à gauche pour un style élégant */
+    border-left: 4px solid #4CAF50;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 blockquote p {
     margin: 0;
-}
-
-/* Responsive Design pour la section citations */
-@media (max-width: 768px) {
-    #quotes {
-        padding: 2rem 1rem;
-    }
-
-    blockquote {
-        padding: 0.5rem;
-        margin: 1rem 0;
-    }
-}
-
-.project, .assignment {
-    background-color: #f4f4f4;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-.project img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
 }
 
 /* Responsive Design */
@@ -129,6 +120,20 @@ blockquote p {
     section {
         padding: 2rem 1rem;
     }
+
+    .profile-img {
+        width: 350px; /* Taille pour tablette */
+        height: 350px;
+    }
+
+    #quotes {
+        padding: 2rem 1rem;
+    }
+
+    blockquote {
+        padding: 0.5rem;
+        margin: 1rem 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -137,7 +142,7 @@ blockquote p {
     }
 
     .profile-img {
-        width: 100px;
-        height: 100px;
+        width: 200px; /* Taille pour mobile */
+        height: 200px;
     }
-}
+        }
