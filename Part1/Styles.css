@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Poppins pour tout le texte */
-    font-weight: 400; /* Poids normal pour le texte de base */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     line-height: 1.6;
     color: #333;
     background: linear-gradient(
@@ -45,7 +45,7 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: 600; /* Poids semi-bold pour les liens de navigation */
+    font-weight: 600;
 }
 
 nav ul li a:hover {
@@ -138,18 +138,70 @@ h2 {
     display: block;
 }
 
-/* Portfolio et Vitrine */
-.portfolio-grid, .showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+/* Styles pour le slider */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    overflow: hidden;
 }
 
-.project, .assignment {
-    background-color: rgba(255, 255, 255, 0.9);
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 33.33%;
     padding: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     border-radius: 5px;
+    object-fit: cover;
+}
+
+.slide h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.slide p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.slider-arrow-left,
+.slider-arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-arrow-left {
+    left: 0;
+}
+
+.slider-arrow-right {
+    right: 0;
+}
+
+.slider-arrow-left:hover,
+.slider-arrow-right:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Section Mes citations */
@@ -228,6 +280,10 @@ blockquote p {
         font-size: 2rem;
         letter-spacing: 0.2px;
     }
+
+    .slide {
+        flex: 0 0 50%; /* Afficher 2 slides à la fois sur tablette */
+    }
 }
 
 @media (max-width: 480px) {
@@ -259,4 +315,8 @@ blockquote p {
         font-size: 1.75rem;
         letter-spacing: 0.1px;
     }
+
+    .slide {
+        flex: 0 0 100%; /* Afficher 1 slide à la fois sur mobile */
     }
+}
