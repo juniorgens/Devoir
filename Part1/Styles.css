@@ -1,20 +1,35 @@
 /* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* fond par defaut pour toute la page) */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f9f6f2; /* Blanc cassé légèrement doré pour le fond général */
+    /* Dégradé emblématique inspiré de l'image */
+    background: linear-gradient(
+        to bottom,
+        #FFF8E1 0%, /* Doré pâle */
+        #FFF3E0 20%, /* Orange pastel */
+        #F9F6F2 40%, /* Blanc cassé */
+        #E8F5E9 60%, /* Vert pâle */
+        #E3F2FD 100% /* Bleu pâle */
+    );
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /* Navigation */
 nav {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.9);
     padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -34,44 +49,47 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #4CAF50;
+    color: #FFD700; /* Doré au survol */
 }
 
 /* Sections */
 section {
     padding: 4rem 2rem;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 1rem auto;
+    max-width: 1200px;
 }
 
-/* Section-specific backgrounds */
+/* Retirer les couleurs de fond spécifiques */
 #home {
     margin-top: 60px;
-    background-color: #f9f6f2; /* Blanc cassé légèrement doré */
+    background-color: transparent;
 }
 
 #about {
-    background-color: #e8f5e9; /* Vert très pâle */
+    background-color: transparent;
 }
 
 #portfolio {
-    background-color: #fff3e0; /* Orange pastel */
+    background-color: transparent;
 }
 
 #showcase {
-    background-color: #ffffff; /* Blanc pur */
+    background-color: transparent;
 }
 
 #quotes {
     padding: 4rem 2rem;
     text-align: center;
-    background-color: #fff8e1; /* Doré pâle */
+    background-color: transparent;
 }
 
 #contact {
-    background-color: #e3f2fd; /* Bleu pâle */
+    background-color: transparent;
 }
 
-/* Autres styles inchangés */
 h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -104,16 +122,9 @@ h2 {
 }
 
 .project, .assignment {
-    background-color: #f4f4f4;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 1rem;
     border-radius: 5px;
-}
-
-.project img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    max-width: 300px;
 }
 
 /* Section Mes citations */
@@ -127,8 +138,8 @@ blockquote {
     color: #555;
     margin: 1.5rem 0;
     padding: 1rem;
-    border-left: 4px solid #4CAF50;
-    background-color: #fff;
+    border-left: 4px solid #FFD700;
+    background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -199,4 +210,4 @@ blockquote p {
     h2 {
         font-size: 1.75rem;
     }
-}
+    }
