@@ -30,7 +30,7 @@ nav {
     width: 100%;
     top: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Assure que le menu reste au-dessus */
+    z-index: 1000;
 }
 
 nav ul {
@@ -62,7 +62,7 @@ section {
     margin: 1rem auto;
     max-width: 1200px;
     position: relative;
-    z-index: 1; /* En dessous du menu */
+    z-index: 1;
 }
 
 #home {
@@ -218,6 +218,19 @@ blockquote {
 
 blockquote p {
     margin: 0;
+}
+
+/* Style pour la bande "Lire d'autres citations" */
+.more-quotes a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.more-quotes a:hover {
+    color: #DAA520;
+    text-decoration: underline;
 }
 
 /* Responsive Design */
