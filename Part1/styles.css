@@ -138,28 +138,44 @@ h2 {
     display: block;
 }
 
-/* Styles pour le slider */
-.slider {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    overflow: hidden;
-}
-
-.slider-track {
+/* Conteneur des projets */
+.project-container {
     display: flex;
-    transition: transform 0.5s ease;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    overflow-x: auto;
 }
 
-.slide {
-    flex: 0 0 33.33%;
-    padding: 1rem;
+/* Chaque projet ou travail scolaire */
+.project-item {
+    flex: 0 0 300px;
     text-align: center;
-    box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.slide img {
+/* État visible */
+.project-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Délais pour une apparition progressive */
+.project-item:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.project-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.project-item:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.project-item img {
     width: 100%;
     max-width: 300px;
     height: auto;
@@ -167,41 +183,14 @@ h2 {
     object-fit: cover;
 }
 
-.slide h3 {
+.project-item h3 {
     margin: 0.5rem 0;
     font-size: 1.2rem;
 }
 
-.slide p {
+.project-item p {
     font-size: 0.9rem;
     color: #555;
-}
-
-.slider-arrow-left,
-.slider-arrow-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.slider-arrow-left {
-    left: 0;
-}
-
-.slider-arrow-right {
-    right: 0;
-}
-
-.slider-arrow-left:hover,
-.slider-arrow-right:hover {
-    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Section Mes citations */
@@ -281,8 +270,13 @@ blockquote p {
         letter-spacing: 0.2px;
     }
 
-    .slide {
-        flex: 0 0 50%; /* Afficher 2 slides à la fois sur tablette */
+    .project-container {
+        justify-content: flex-start;
+        padding: 0 1rem;
+    }
+
+    .project-item {
+        flex: 0 0 50%;
     }
 }
 
@@ -316,7 +310,12 @@ blockquote p {
         letter-spacing: 0.1px;
     }
 
-    .slide {
-        flex: 0 0 100%; /* Afficher 1 slide à la fois sur mobile */
+    .project-container {
+        justify-content: flex-start;
+        padding: 0 1rem;
     }
-}
+
+    .project-item {
+        flex: 0 0 100%;
+    }
+    }
