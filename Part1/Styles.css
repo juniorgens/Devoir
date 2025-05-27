@@ -6,7 +6,8 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Poppins pour tout le texte */
+    font-weight: 400; /* Poids normal pour le texte de base */
     line-height: 1.6;
     color: #333;
     background: linear-gradient(
@@ -44,7 +45,7 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600; /* Poids semi-bold pour les liens de navigation */
 }
 
 nav ul li a:hover {
@@ -66,8 +67,23 @@ section {
     background-color: transparent;
 }
 
+#home p {
+    font-size: 1.2rem; /* Taille plus grande pour le texte sous la photo */
+    font-weight: 400;
+    color: #222;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+}
+
 #about {
     background-color: transparent;
+}
+
+#about p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 0.3px;
 }
 
 #portfolio {
@@ -188,6 +204,16 @@ blockquote p {
         margin: 1rem 0;
     }
 
+    #home p {
+        font-size: 1.1rem;
+        letter-spacing: 0.3px;
+    }
+
+    #about p {
+        font-size: 1rem;
+        letter-spacing: 0.2px;
+    }
+
     h1 {
         font-size: 2.5rem;
         letter-spacing: 0.3px;
@@ -209,6 +235,16 @@ blockquote p {
         height: 300px;
     }
 
+    #home p {
+        font-size: 1rem;
+        letter-spacing: 0.2px;
+    }
+
+    #about p {
+        font-size: 0.95rem;
+        letter-spacing: 0.1px;
+    }
+
     h1 {
         font-size: 2rem;
         letter-spacing: 0.2px;
@@ -218,4 +254,4 @@ blockquote p {
         font-size: 1.75rem;
         letter-spacing: 0.1px;
     }
-}
+    }
