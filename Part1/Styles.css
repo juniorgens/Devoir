@@ -53,9 +53,8 @@ h1, h2 {
 .profile-img {
     width: 1000px; /* Augmente la largeur pour une image plus grande */
     height: 1000px; /* Augmente la hauteur */
-    object-fit: cover; /* Évite la déformation */
+    
     margin: 1rem auto; /* Garde l'image centrée */
-    display: block; /* Assure que l'image est un élément de bloc */
 }
 
 /* Portfolio et Vitrine */
