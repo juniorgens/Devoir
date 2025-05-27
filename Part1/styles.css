@@ -30,6 +30,7 @@ nav {
     width: 100%;
     top: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Assure que le menu reste au-dessus */
 }
 
 nav ul {
@@ -60,6 +61,8 @@ section {
     border-radius: 10px;
     margin: 1rem auto;
     max-width: 1200px;
+    position: relative;
+    z-index: 1; /* En dessous du menu */
 }
 
 #home {
@@ -93,10 +96,12 @@ section {
 
 #portfolio {
     background-color: transparent;
+    z-index: 1;
 }
 
 #showcase {
     background-color: transparent;
+    z-index: 1;
 }
 
 #quotes {
@@ -145,6 +150,7 @@ h2 {
     gap: 1.5rem;
     margin-top: 2rem;
     overflow-x: auto;
+    z-index: 1;
 }
 
 /* Chaque projet ou travail scolaire */
@@ -154,6 +160,7 @@ h2 {
     opacity: 0;
     transform: translateX(-50px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1;
 }
 
 /* État visible */
@@ -318,4 +325,4 @@ blockquote p {
     .project-item {
         flex: 0 0 100%;
     }
-    }
+}
