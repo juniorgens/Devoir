@@ -137,6 +137,8 @@ section {
     background: linear-gradient(135deg, rgba(232, 245, 233, 0.8), rgba(227, 242, 253, 0.8));
     background-attachment: fixed;
     padding: 4rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 #about h2 {
@@ -144,14 +146,20 @@ section {
     font-size: 2.5rem;
     font-weight: 700;
     color: #333;
+    margin-bottom: 2rem;
     opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 #about h2.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-text {
@@ -161,17 +169,20 @@ section {
     color: #333;
     letter-spacing: 0.5px;
     line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto;
+    margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateX(-30px);
-    transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .about-text.visible {
     opacity: 1;
     transform: translateX(0);
 }
+
+.about-text:nth-child(1) { transition-delay: 0.2s; }
+.about-text:nth-child(2) { transition-delay: 0.4s; }
+.about-text:nth-child(3) { transition-delay: 0.6s; }
 
 #portfolio,
 #showcase {
@@ -444,19 +455,9 @@ h2 {
 /* Footer */
 footer {
     background-color: rgba(51, 51, 51, 0.9);
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+    padding: 0.5rem;
     border-top: 2px solid #FFD700;
     margin-top: 2rem;
-}
-
-footer p {
-    margin: 0;
 }
 
 /* Responsive Design */
@@ -512,6 +513,7 @@ footer p {
 
     .about-text {
         font-size: 1rem;
+        margin-bottom: 1rem;
     }
 
     h1 {
@@ -552,6 +554,14 @@ footer p {
     .submit-btn {
         padding: 0.5rem 1.5rem;
         font-size: 0.95rem;
+    }
+
+    #about {
+        padding: 2rem 1rem;
+    }
+
+    #about h2 {
+        font-size: 2rem;
     }
 }
 
@@ -614,4 +624,8 @@ footer p {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
-        }
+
+    #about h2 {
+        font-size: 1.75rem;
+    }
+}
