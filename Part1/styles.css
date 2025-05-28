@@ -67,7 +67,7 @@ section {
 
 #home {
     margin-top: 60px;
-    background-image: url('Images/profil.jpg');
+    background-image: url('Images/profil.jpg'); /* Chemin corrigé */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -507,4 +507,4 @@ h2 {
     .project-item {
         flex: 0 0 100%;
     }
-        }
+}
