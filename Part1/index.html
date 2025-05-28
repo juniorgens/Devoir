@@ -20,37 +20,32 @@
     </nav>
 
     <section id="home">
-        <h1>Bienvenue sur mon portfolio</h1>
-        <img src="Images/profil.jpg" alt="Photo de profil" class="profile-img">
-        <p>Hi, I'm Yonda Edjouck Leslie — a third-year Electronic and Computer Engineering student at the University of Ferrara in Italy.</p>
+        <div class="home-content">
+            <h1>Bienvenue sur mon portfolio</h1>
+            <p class="bio-text">Hi, I'm Yonda Edjouck Leslie — a third-year Electronic and Computer Engineering student at the University of Ferrara in Italy.</p>
+        </div>
     </section>
 
     <section id="about">
         <h2>À propos de moi</h2>
-        <p> I’m originally from Cameroon, where I completed both my primary and secondary education — first at People Progressive Bilingual School, and later at Collège De La Salle.
-
-Currently, I live in Italy, where I’m pursuing a degree in Electronic and Computer Engineering at the University of Ferrara. I'm now in my third year of studies.
-
-I’ve always been passionate about robotics and emerging technologies. I enjoy taking on challenges because they allow me to push my limits and grow, both personally and academically.
-
-Since March, I’ve been in Japan as part of an exchange program at Shibaura Institute of Technology, which has been an exciting opportunity to explore new perspectives and broaden my international experience. </p> 
+        <p class="about-text">I am a third-year Electronic and Computer Engineering student at the University of Ferrara in Italy. Passionate about automation, embedded systems, and software development, I have worked on projects such as [example].</p>
     </section>
 
     <section id="portfolio">
         <h2>Mes travaux précédents</h2>
         <div class="project-container">
             <div class="project-item">
-                <img src="Images/projet1.jpg" alt="Projet 1">
+                <img src="images/project1.jpg" alt="Projet 1">
                 <h3>Projet 1</h3>
                 <p>Description du projet 1.</p>
             </div>
             <div class="project-item">
-                <img src="Images/projet2.jpg" alt="Projet 2">
+                <img src="images/project2.jpg" alt="Projet 2">
                 <h3>Projet 2</h3>
                 <p>Description du projet 2.</p>
             </div>
             <div class="project-item">
-                <img src="Images/projet3.jpg" alt="Projet 3">
+                <img src="images/project3.jpg" alt="Projet 3">
                 <h3>Projet 3</h3>
                 <p>Description du projet 3.</p>
             </div>
@@ -61,17 +56,17 @@ Since March, I’ve been in Japan as part of an exchange program at Shibaura Ins
         <h2>Vitrine de travaux scolaires</h2>
         <div class="project-container">
             <div class="project-item">
-                <img src="Images/devoir1.jpg" alt="Travail 1">
+                <img src="images/assignment1.jpg" alt="Travail 1">
                 <h3>Travail 1</h3>
                 <p>Description du travail scolaire 1.</p>
             </div>
             <div class="project-item">
-                <img src="Images/devoir2.jpg" alt="Travail 2">
+                <img src="images/assignment2.jpg" alt="Travail 2">
                 <h3>Travail 2</h3>
                 <p>Description du travail scolaire 2.</p>
             </div>
             <div class="project-item">
-                <img src="Images/devoir3.jpg" alt="Travail 3">
+                <img src="images/assignment3.jpg" alt="Travail 3">
                 <h3>Travail 3</h3>
                 <p>Description du travail scolaire 3.</p>
             </div>
@@ -79,10 +74,10 @@ Since March, I’ve been in Japan as part of an exchange program at Shibaura Ins
     </section>
 
     <section id="quotes">
-        <h2> Mes citations </h2>
+        <h2>Ascending (Mes citations)</h2>
         <div class="quotes-list">
-            <blockquote><p>Life is a paradise of thorns and honey</p></blockquote>
-            <blockquote><p>Between sensitivity and love, there is reality</p></blockquote>
+            <blockquote class="quote-item"><p>"Citation 1"</p></blockquote>
+            <blockquote class="quote-item"><p>"Citation 2"</p></blockquote>
             <blockquote class="more-quotes">
                 <p><a href="citation.html">Lire d'autres citations de façon aléatoire</a></p>
             </blockquote>
@@ -91,7 +86,21 @@ Since March, I’ve been in Japan as part of an exchange program at Shibaura Ins
 
     <section id="contact">
         <h2>Contactez-moi</h2>
-        <p>Contactez-moi à [ton email].</p>
+        <form class="contact-form">
+            <div class="form-item">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+            </div>
+            <div class="form-item">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Votre email" required>
+            </div>
+            <div class="form-item">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Envoyer</button>
+        </form>
     </section>
 
     <script src="script.js"></script>
