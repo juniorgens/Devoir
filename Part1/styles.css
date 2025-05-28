@@ -87,7 +87,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
 
@@ -96,16 +96,15 @@ section {
     z-index: 2;
     max-width: 800px;
     padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: none;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 #home h1 {
     font-size: 3.5rem;
-    color: #222;
+    color: #fff;
     margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateY(20px);
@@ -120,7 +119,7 @@ section {
 .bio-text {
     font-size: 1.2rem;
     font-weight: 400;
-    color: #222;
+    color: #fff;
     letter-spacing: 0.5px;
     max-width: 600px;
     margin: 0 auto;
@@ -319,9 +318,15 @@ blockquote p {
     background: linear-gradient(45deg, #E3F2FD, #E8F5E9);
     background-size: 200% 200%;
     animation: gradientShift 10s ease infinite;
+    padding: 4rem 2rem;
 }
 
 #contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -334,11 +339,279 @@ blockquote p {
 
 .contact-form {
     max-width: 600px;
-    margin: 2rem auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
 .form-item {
-    display: flex
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.form-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-item:nth-child(1) { transition-delay: 0s; }
+.form-item:nth-child(2) { transition-delay: 0.2s; }
+.form-item:nth-child(3) { transition-delay: 0.4s; }
+
+.form-item label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-item input,
+.form-item textarea {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.form-item input:focus,
+.form-item textarea:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+    outline: none;
+    transform: scale(1.01);
+}
+
+.form-item textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    padding: 0.75rem 2rem;
+    background-color: #FFD700;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s, background-color 0.3s ease;
+}
+
+.submit-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submit-btn:hover {
+    background-color: #DAA520;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #222;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #333;
+    letter-spacing: 0.3px;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    border-top: 2px solid #FFD700;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    nav {
+        padding: 0.5rem;
+    }
+
+    #home {
+        margin-top: 120px;
+        height: 80vh;
+        filter: brightness(0.95) contrast(1.15);
+    }
+
+    #home::before {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .home-content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    .bio-text {
+        font-size: 1.1rem;
+    }
+
+    #quotes {
+        padding: 2rem 1rem;
+    }
+
+    blockquote {
+        padding: 0.5rem;
+        margin: 1rem 0;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .project-container {
+        justify-content: flex-start;
+        padding: 0 1rem;
+    }
+
+    .project-item {
+        flex: 0 0 50%;
+    }
+
+    #contact {
+        padding: 2rem 1rem;
+    }
+
+    #contact h2 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .form-item input,
+    .form-item textarea {
+        padding: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #home {
+        margin-top: 100px;
+        height: 70vh;
+        filter: brightness(1) contrast(1.2);
+    }
+
+    #home::before {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .home-content {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    #home h1 {
+        font-size: 2rem;
+    }
+
+    .bio-text {
+        font-size: 1rem;
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .project-container {
+        justify-content: flex-start;
+        padding: 0 1rem;
+    }
+
+    .project-item {
+        flex: 0 0 100%;
+    }
+
+    #contact h2 {
+        font-size: 1.75rem;
+    }
+
+    .form-item input,
+    .form-item textarea {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+        }
