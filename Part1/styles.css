@@ -67,51 +67,327 @@ section {
 
 #home {
     margin-top: 60px;
-    background-color: transparent;
+    background-image: url('images/profil.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-#home p {
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+#home h1 {
+    font-size: 3.5rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#home h1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bio-text {
     font-size: 1.2rem;
     font-weight: 400;
     color: #222;
     letter-spacing: 0.5px;
-    margin-top: 1rem;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.bio-text.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #about {
-    background-color: transparent;
+    background: linear-gradient(135deg, rgba(232, 245, 233, 0.8), rgba(227, 242, 253, 0.8));
+    background-attachment: fixed;
+    padding: 4rem 2rem;
 }
 
-#about p {
+#about h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#about h2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-text {
     font-size: 1.1rem;
     font-weight: 400;
     color: #333;
     letter-spacing: 0.3px;
     max-width: 800px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
 }
 
-#portfolio {
-    background-color: transparent;
-    z-index: 1;
+.about-text.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
+#portfolio,
 #showcase {
-    background-color: transparent;
+    background: linear-gradient(45deg, #FFF8E1, #E8F5E9);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.project-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    overflow-x: auto;
     z-index: 1;
+}
+
+.project-item {
+    flex: 0 0 300px;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.project-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(-50px) scale(1.05);
+}
+
+.project-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.project-item.visible:hover {
+    transform: translateX(0) scale(1.05);
+}
+
+.project-item:nth-child(1) { transition-delay: 0s; }
+.project-item:nth-child(2) { transition-delay: 0.2s; }
+.project-item:nth-child(3) { transition-delay: 0.4s; }
+
+.project-item img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.project-item h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.project-item p {
+    font-size: 0.9rem;
+    color: #555;
 }
 
 #quotes {
-    padding: 4rem 2rem;
-    text-align: center;
-    background-color: transparent;
+    background: linear-gradient(45deg, #FFF3E0, #F9F6F2);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+.quotes-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-left: 4px solid #FFD700;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+blockquote p {
+    margin: 0;
+}
+
+.quote-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.quote-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quote-item:nth-child(1) { transition-delay: 0s; }
+.quote-item:nth-child(2) { transition-delay: 0.2s; }
+
+.quote-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.more-quotes {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.more-quotes:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.more-quotes a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.more-quotes a:hover {
+    color: #DAA520;
+    text-decoration: underline;
 }
 
 #contact {
-    background-color: transparent;
+    background: linear-gradient(45deg, #E3F2FD, #E8F5E9);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+#contact h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#contact h2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.form-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-item:nth-child(1) { transition-delay: 0s; }
+.form-item:nth-child(2) { transition-delay: 0.2s; }
+.form-item:nth-child(3) { transition-delay: 0.4s; }
+
+.form-item label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-item input,
+.form-item textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-item input:focus,
+.form-item textarea:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    outline: none;
+}
+
+.form-item textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-btn {
+    padding: 0.75rem 2rem;
+    background-color: #FFD700;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s, background-color 0.3s ease;
+}
+
+.submit-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submit-btn:hover {
+    background-color: #DAA520;
+    transform: translateY(-2px);
 }
 
 h1 {
@@ -134,105 +410,6 @@ h2 {
     letter-spacing: 0.3px;
 }
 
-.profile-img {
-    width: 700px;
-    height: 700px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 1rem auto;
-    display: block;
-}
-
-/* Conteneur des projets */
-.project-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    overflow-x: auto;
-    z-index: 1;
-}
-
-/* Chaque projet ou travail scolaire */
-.project-item {
-    flex: 0 0 300px;
-    text-align: center;
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    z-index: 1;
-}
-
-/* État visible */
-.project-item.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Délais pour une apparition progressive */
-.project-item:nth-child(1) {
-    transition-delay: 0s;
-}
-
-.project-item:nth-child(2) {
-    transition-delay: 0.2s;
-}
-
-.project-item:nth-child(3) {
-    transition-delay: 0.4s;
-}
-
-.project-item img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 5px;
-    object-fit: cover;
-}
-
-.project-item h3 {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-}
-
-.project-item p {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Section Mes citations */
-.quotes-list {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-blockquote {
-    font-style: italic;
-    color: #555;
-    margin: 1.5rem 0;
-    padding: 1rem;
-    border-left: 4px solid #FFD700;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-blockquote p {
-    margin: 0;
-}
-
-/* Style pour la bande "Lire d'autres citations" */
-.more-quotes a {
-    color: #FFD700;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.more-quotes a:hover {
-    color: #DAA520;
-    text-decoration: underline;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     nav ul {
@@ -250,15 +427,19 @@ blockquote p {
 
     #home {
         margin-top: 120px;
+        height: 80vh;
     }
 
     section {
         padding: 2rem 1rem;
     }
 
-    .profile-img {
-        width: 500px;
-        height: 500px;
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    .bio-text {
+        font-size: 1.1rem;
     }
 
     #quotes {
@@ -270,24 +451,16 @@ blockquote p {
         margin: 1rem 0;
     }
 
-    #home p {
-        font-size: 1.1rem;
-        letter-spacing: 0.3px;
-    }
-
-    #about p {
+    .about-text {
         font-size: 1rem;
-        letter-spacing: 0.2px;
     }
 
     h1 {
         font-size: 2.5rem;
-        letter-spacing: 0.3px;
     }
 
     h2 {
         font-size: 2rem;
-        letter-spacing: 0.2px;
     }
 
     .project-container {
@@ -303,31 +476,27 @@ blockquote p {
 @media (max-width: 480px) {
     #home {
         margin-top: 100px;
+        height: 70vh;
     }
 
-    .profile-img {
-        width: 300px;
-        height: 300px;
+    #home h1 {
+        font-size: 2rem;
     }
 
-    #home p {
+    .bio-text {
         font-size: 1rem;
-        letter-spacing: 0.2px;
     }
 
-    #about p {
+    .about-text {
         font-size: 0.95rem;
-        letter-spacing: 0.1px;
     }
 
     h1 {
         font-size: 2rem;
-        letter-spacing: 0.2px;
     }
 
     h2 {
         font-size: 1.75rem;
-        letter-spacing: 0.1px;
     }
 
     .project-container {
@@ -338,4 +507,4 @@ blockquote p {
     .project-item {
         flex: 0 0 100%;
     }
-}
+        }
