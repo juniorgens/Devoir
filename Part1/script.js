@@ -14,14 +14,45 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-// Gestion de l'affichage dynamique des images
-const sections = document.querySelectorAll('#portfolio, #showcase');
-
+// Options communes pour IntersectionObserver
 const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.1
 };
+
+// Gestion de l'apparition dynamique pour #home
+const homeSection = document.querySelector('#home');
+const homeObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const h1 = entry.target.querySelector('h1');
+        const bio = entry.target.querySelector('.bio-text');
+        if (entry.isIntersecting) {
+            h1.classList.add('visible');
+            bio.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+homeObserver.observe(homeSection);
+
+// Gestion de l'apparition dynamique pour #about
+const aboutSection = document.querySelector('#about');
+const aboutObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const h2 = entry.target.querySelector('h2');
+        const text = entry.target.querySelector('.about-text');
+        if (entry.isIntersecting) {
+            h2.classList.add('visible');
+            text.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+aboutObserver.observe(aboutSection);
+
+// Gestion de l'affichage dynamique des images pour #portfolio et #showcase
+const sections = document.querySelectorAll('#portfolio, #showcase');
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -35,3 +66,33 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 sections.forEach(section => observer.observe(section));
+
+// Gestion de l'apparition dynamique pour #quotes
+const quotesSection = document.querySelector('#quotes');
+const quotesObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const h2 = entry.target.querySelector('h2');
+        const quotes = entry.target.querySelectorAll('.quote-item, .more-quotes');
+        if (entry.isIntersecting) {
+            h2.classList.add('visible');
+            quotes.forEach(quote => quote.classList.add('visible'));
+        }
+    });
+}, observerOptions);
+
+quotesObserver.observe(quotesSection);
+
+// Gestion de l'apparition dynamique pour #contact
+const contactSection = document.querySelector('#contact');
+const contactObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const h2 = entry.target.querySelector('h2');
+        const formItems = entry.target.querySelectorAll('.form-item, .submit-btn');
+        if (entry.isIntersecting) {
+            h2.classList.add('visible');
+            formItems.forEach(item => item.classList.add('visible'));
+        }
+    });
+}, observerOptions);
+
+contactObserver.observe(contactSection);
