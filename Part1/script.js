@@ -1,98 +1,29 @@
 // script.js
 
-// Smooth scrolling pour la navigation
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        const navHeight = document.querySelector('nav').offsetHeight;
-        window.scrollTo({
-            top: targetSection.offsetTop - navHeight,
-            behavior: 'smooth'
+// Gestion des animations dynamiques pour toutes les sections avec IntersectionObserver
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const options = {
+        threshold: 0.1 // Déclenche l'animation lorsque 10% de la section est visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Cible tous les éléments à animer dans cette section
+                const elementsToAnimate = entry.target.querySelectorAll('h2, .bio-text, .about-text, .project-item, .quote-item, .more-quotes, .form-item, .submit-btn');
+                elementsToAnimate.forEach((item, index) => {
+                    // Ajoute la classe 'visible' avec un léger délai pour un effet progressif
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 200); // Délai de 200ms entre chaque élément
+                });
+                observer.unobserve(entry.target); // Arrête d'observer cette section une fois animée
+            }
         });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
     });
 });
-
-// Options communes pour IntersectionObserver
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-// Gestion de l'apparition dynamique pour #home
-const homeSection = document.querySelector('#home');
-const homeObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        const h1 = entry.target.querySelector('h1');
-        const bio = entry.target.querySelector('.bio-text');
-        if (entry.isIntersecting) {
-            h1.classList.add('visible');
-            bio.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-homeObserver.observe(homeSection);
-
-// Gestion de l'apparition dynamique pour #about
-const aboutSection = document.querySelector('#about');
-const aboutObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        const h2 = entry.target.querySelector('h2');
-        const text = entry.target.querySelector('.about-text');
-        if (entry.isIntersecting) {
-            h2.classList.add('visible');
-            text.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-aboutObserver.observe(aboutSection);
-
-// Gestion de l'affichage dynamique des images pour #portfolio et #showcase
-const sections = document.querySelectorAll('#portfolio, #showcase');
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        const items = entry.target.querySelectorAll('.project-item');
-        if (entry.isIntersecting) {
-            items.forEach(item => item.classList.add('visible'));
-        } else {
-            items.forEach(item => item.classList.remove('visible'));
-        }
-    });
-}, observerOptions);
-
-sections.forEach(section => observer.observe(section));
-
-// Gestion de l'apparition dynamique pour #quotes
-const quotesSection = document.querySelector('#quotes');
-const quotesObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        const h2 = entry.target.querySelector('h2');
-        const quotes = entry.target.querySelectorAll('.quote-item, .more-quotes');
-        if (entry.isIntersecting) {
-            h2.classList.add('visible');
-            quotes.forEach(quote => quote.classList.add('visible'));
-        }
-    });
-}, observerOptions);
-
-quotesObserver.observe(quotesSection);
-
-// Gestion de l'apparition dynamique pour #contact
-const contactSection = document.querySelector('#contact');
-const contactObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        const h2 = entry.target.querySelector('h2');
-        const formItems = entry.target.querySelectorAll('.form-item, .submit-btn');
-        if (entry.isIntersecting) {
-            h2.classList.add('visible');
-            formItems.forEach(item => item.classList.add('visible'));
-        }
-    });
-}, observerOptions);
-
-contactObserver.observe(contactSection);
