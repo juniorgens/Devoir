@@ -186,6 +186,16 @@ section {
 .about-text:nth-child(3) { transition-delay: 0.6s; }
 .about-text:nth-child(4) { transition-delay: 0.8s; }
 
+/* Solution de secours : affiche les paragraphes après 3 secondes si JavaScript échoue */
+.about-text {
+    animation: forceVisible 3s forwards;
+}
+
+@keyframes forceVisible {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
 #portfolio,
 #showcase {
     background: linear-gradient(45deg, #FFF8E1, #E8F5E9);
